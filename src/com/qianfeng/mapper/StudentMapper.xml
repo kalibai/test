@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 每一个接口不用去写实现，可以直接配置对应的xml文件，在xml文件中写方法的具体实现 -->
+  <!-- xml文件通过namespace去跟接口相对应 --> 
+<mapper namespace="com.qianfeng.mapper.StudentMapper">
+	<!--编写selectStudentById方法的具体实现  -->
+	<!-- id跟你要实现的接口的方法名要对应 
+		parameterType：入参类型
+		resultType:返回的类型
+		#{}:占位符
+	-->
+	<!-- v1 -->
+	<!-- <select id="selectStudentById" parameterType="int" resultType="com.qianfeng.pojo.Student">
+		select id,user_name as username,num,age,dept,imgpath
+		from tb_student where id=#{id}
+	</select> -->
+	<!-- v2(使用别名) -->
+	<!-- <select id="selectStudentById" parameterType="int" resultType="student">
+		select id,user_name as username,num,age,dept,imgpath
+		from tb_student where id=#{id}
+	</select> -->
+	<!-- v3(使用resultmap) -->
+	<!-- 如果使用resultmap，查询时可以不用设置别名 -->
+	<select id="selectStudentById" parameterType="int" resultMap="studentMap">
+		select id,user_name ,num,age,dept,imgpath
+		from tb_student where id=#{id}
+	</select>
+	<!-- 根据学生对象做入参查询结果 -->
+	<select id="getStudentByStudent" parameterType="student" resultMap="studentMap">
+		select id,user_name ,num,age,dept,imgpath
+		from tb_student where user_name=#{username} and age=#{age}
+	</select>
+	<!-- 查询所有的学生对象 -->
+	<select id="getStudentList" resultMap="studentMap">
+		select *
+		from tb_student;
+	</select>
+	<!-- 添加学生信息 -->
+	<insert id="addStudent" parameterType="student">
+		insert into tb_student(user_name,num,age,dept,imgpath)values(#{username},#{num},#{age},#{dept},#{imgpath})
+	</insert>
+	<!-- 更新学生信息 -->
+	<update id="updateStudent" parameterType="student">
+		update tb_student set user_name=#{username},num=#{num},age=#{age},
+		dept=#{dept},imgpath=#{imgpath} where id=#{id};
+	</update>
+	<!-- 根据id删除一条学生信息 -->
+	<delete id="deleteStudentById" parameterType="student">
+		delete from tb_student where id=#{id};
+	</delete>
+	<!-- delete from tb_student where id in(1,2,3) -->
+	<!-- 根据id批量删除   参数为数组：collection写array ，参数为集合 ：collection写list   separator-->
+	<delete id="deleteBatch">
+		delete from tb_student where id in
+		<foreach collection="array" item="id" open="(" close=")" separator=",">
+			#{id}
+		</foreach>
+	</delete>
+	<!-- 排序查询 -->
+	<!-- ${}：字段名称 和 #{}:传入字段具体的值   -->
+	<select id="queryOrderByColumn" parameterType="student" resultMap="studentMap">
+		select id,user_name,num,age,dept,imgpath from tb_student order by ${orderByColumn} desc
+	</select>
+	<!-- 使用自定义分页对象的方法查询 -->
+	<select id="queryLimitObject" parameterType="com.qianfeng.utils.PageUtil" resultType="student">
+		select id,user_name as username,num,age,dept,imgpath from tb_student limit #{offset},#{length}
+	</select>
+	<!-- 入参是map，来进行分页 -->
+	<select id="queryLimitByMap" parameterType="map" resultType="student">
+		select id,user_name as username,num,age,dept,imgpath from tb_student limit #{offset},#{length}
+	</select>
+	<!-- 自定义resultmap  type:与pojo对象对应 -->
+	<resultMap id="studentMap" type="com.qianfeng.pojo.Student">
+		<!--配置id  property:实体类的属性  column:数据库中的字段-->
+		<id property="id" column="id"/>
+		<result property="username" column="user_name"/>
+		<result property="num" column="num"/>
+		<result property="age" column="age"/>
+		<result property="dept" column="dept"/>
+		<result property="imgpath" column="imgpath"/>
+	</resultMap>
+</mapper>
