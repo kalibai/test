@@ -7,7 +7,7 @@
 	<!-- 取别名 -->
 	<typeAliases>
 		<!-- alias:取得别名 -->
-		<typeAlias type="com.qianfeng.pojo.Student" alias="student"/>
+		<typeAlias type="com.MY.pojo.Student" alias="student"/>
 	</typeAliases>
 	<environments default="development">
 	<!-- mybatis对于数据库环境的选择  ，正常情况下数据库环境有三种：开发环境、测试环境、产品发布上线环境 -->
@@ -25,6 +25,6 @@
 		<!-- 引入 StudentMapper.xml-->
 		<!-- <mapper resource="com/qianfeng/mapper/StudentMapper.xml"/> -->
 		<!-- 引入接口文件 -->
-		<mapper class="com.qianfeng.mapper.StudentMapper"></mapper>
+		<mapper class="com.MY.mapper.StudentMapper"></mapper>
 	</mappers>
 </configuration>

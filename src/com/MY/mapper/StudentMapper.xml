@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <!-- 每一个接口不用去写实现，可以直接配置对应的xml文件，在xml文件中写方法的具体实现 -->
   <!-- xml文件通过namespace去跟接口相对应 --> 
-<mapper namespace="com.qianfeng.mapper.StudentMapper">
+<mapper namespace="com.MY.mapper.StudentMapper">
 	<!--编写selectStudentById方法的具体实现  -->
 	<!-- id跟你要实现的接口的方法名要对应 
 		parameterType：入参类型
@@ -64,7 +64,7 @@
 		select id,user_name,num,age,dept,imgpath from tb_student order by ${orderByColumn} desc
 	</select>
 	<!-- 使用自定义分页对象的方法查询 -->
-	<select id="queryLimitObject" parameterType="com.qianfeng.utils.PageUtil" resultType="student">
+	<select id="queryLimitObject" parameterType="com.MY.utils.PageUtil" resultType="student">
 		select id,user_name as username,num,age,dept,imgpath from tb_student limit #{offset},#{length}
 	</select>
 	<!-- 入参是map，来进行分页 -->
@@ -72,7 +72,7 @@
 		select id,user_name as username,num,age,dept,imgpath from tb_student limit #{offset},#{length}
 	</select>
 	<!-- 自定义resultmap  type:与pojo对象对应 -->
-	<resultMap id="studentMap" type="com.qianfeng.pojo.Student">
+	<resultMap id="studentMap" type="com.MY.pojo.Student">
 		<!--配置id  property:实体类的属性  column:数据库中的字段-->
 		<id property="id" column="id"/>
 		<result property="username" column="user_name"/>
