@@ -1,26 +1,26 @@
-package com.qianfeng.test;
+package com.MY.test;
 
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
-import com.qianfeng.mapper.StudentMapper;
-import com.qianfeng.pojo.Student;
-import com.qianfeng.utils.SqlSessionFactoryUtils;
+import com.MY.mapper.StudentMapper;
+import com.MY.pojo.Student;
+import com.MY.utils.SqlSessionFactoryUtils;
 
 /**
  * @author Teacher
- *	Ìí¼ÓÊý¾Ý
+ *	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class TestMybatisInsert {
 	public static void main(String[] args) {
 		Logger logger = Logger.getLogger(TestMybatisInsert.class);
-		Student student = new Student("ÕÅ°®¸Ú", "123123", 45, "¼ÆËã»úÏµ", "img/2.jpg");
+		Student student = new Student("ï¿½Å°ï¿½ï¿½ï¿½", "123123", 45, "ï¿½ï¿½ï¿½ï¿½ï¿½Ïµ", "img/2.jpg");
 		SqlSession sqlSession = SqlSessionFactoryUtils.getSqlSession();
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		mapper.addStudent(student);
-		//¼ÇµÃÌá½»ÊÂÎñ
+		//ï¿½Çµï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½
 		sqlSession.commit();
 	}
 }

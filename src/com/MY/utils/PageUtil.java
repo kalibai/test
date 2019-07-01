@@ -1,12 +1,12 @@
-package com.qianfeng.utils;
+package com.MY.utils;
 
 public class PageUtil {
 	/**
-	 * 每一页起始地偏移量
+	 * 每一页锟斤拷始锟斤拷偏锟斤拷锟斤拷
 	 */
 	private int offset;
 	/**
-	 * 每一页的条数
+	 * 每一页锟斤拷锟斤拷锟斤拷
 	 */
 	private int length;
 	public int getOffset() {

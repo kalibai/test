@@ -1,60 +1,60 @@
-package com.qianfeng.mapper;
+package com.MY.mapper;
 
 import java.util.List;
 import java.util.Map;
 
-import com.qianfeng.pojo.Student;
-import com.qianfeng.utils.PageUtil;
+import com.MY.pojo.Student;
+import com.MY.utils.PageUtil;
 
 /**
  * @author Teacher
- *	³éÏóÀà£º¿ÉÒÔ¶¨Òå³éÏó·½·¨(ÊµÏÖÀà±ØĞëÒªÇ¿ÖÆÖØĞ´)ºÍÆÕÍ¨·½·¨
- *	½Ó¿ÚÀïÃæµÄ·½·¨ÊÇÊ¡ÂÔÁË public abstract 
+ *	ï¿½ï¿½ï¿½ï¿½ï¿½à£ºï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ó·½·ï¿½(Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÇ¿ï¿½ï¿½ï¿½ï¿½Ğ´)ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½
+ *	ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½Ê¡ï¿½ï¿½ï¿½ï¿½ public abstract 
  */
 public interface StudentMapper {
 	
 	/**
-	 * ¸ù¾İid²éÑ¯Ñ§ÉúĞÅÏ¢
+	 * æ‰‹åŠ¨å†™çš„æŸ¥è¯¢æ¥å£
 	 */
 	Student selectStudentById(int id);
 	/**
-	 * ¸ù¾İÑ§ÉúĞÕÃûºÍÄêÁä²éÑ¯
+	 * æ‰‹åŠ¨å†™çš„æŸ¥è¯¢æ¥å£
 	 */
 	Student getStudentByStudent(Student student);
 	/**
-	 * ²éÑ¯ËùÓĞµÄÑ§Éú¶ÔÏó
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ğµï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	List<Student> getStudentList();
 	/**
-	 * Ìí¼ÓÑ§ÉúĞÅÏ¢
+	 * ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	void addStudent(Student student);
 	/**
-	 * ¸ù¾İid¸üĞÂÑ§ÉúĞÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	void updateStudent(Student student);
 	/**
-	 * ¸ù¾İidÉ¾³ıÄ³Ò»ÌõÊı¾İ
+	 * ï¿½ï¿½ï¿½ï¿½idÉ¾ï¿½ï¿½Ä³Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	void deleteStudentById(Student student);
 	/**
-	 * ÅúÁ¿É¾³ı
+	 * ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½
 	 */
 	void deleteBatch(int[] ids);
 	/**
-	 * ¸ù¾İ´«Èë×Ö¶ÎÅÅĞò²éÑ¯
+	 * ï¿½ï¿½ï¿½İ´ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯
 	 */
 	List<Student> queryOrderByColumn(Student student);
 	/**
-	 * ·ÖÒ³²éÑ¯
+	 * ï¿½ï¿½Ò³ï¿½ï¿½Ñ¯
 	 */
 	List<Student> queryLimitObject(PageUtil pageUtil);
 	/**
-	 * Ê¹ÓÃmap·ÖÒ³
+	 * Ê¹ï¿½ï¿½mapï¿½ï¿½Ò³
 	 */
 	List<Student> queryLimitByMap(Map<String, Object> map);
 	/**
-	 * ½Ó¿Ú¶¨ÒåÆÕÍ¨·½·¨Ê¹ÓÃdefault¹Ø¼ü×Ö
+	 * ï¿½Ó¿Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½defaultï¿½Ø¼ï¿½ï¿½ï¿½
 	 */
 //	public default void select() {
 //	}

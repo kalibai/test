@@ -1,4 +1,4 @@
-package com.qianfeng.test;
+package com.MY.test;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.qianfeng.mapper.StudentMapper;
-import com.qianfeng.pojo.Student;
+import com.MY.mapper.StudentMapper;
+import com.MY.pojo.Student;
 
 public class TestMybatis2 {
 	public static void main(String[] args) {

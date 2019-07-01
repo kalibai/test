@@ -1,10 +1,10 @@
-package com.qianfeng.test;
+package com.MY.test;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
-import com.qianfeng.mapper.StudentMapper;
-import com.qianfeng.utils.SqlSessionFactoryUtils;
+import com.MY.mapper.StudentMapper;
+import com.MY.utils.SqlSessionFactoryUtils;
 
 public class TestMybatisDeleteBatch {
 	public static void main(String[] args) {

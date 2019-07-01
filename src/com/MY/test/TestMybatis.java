@@ -1,4 +1,4 @@
-package com.qianfeng.test;
+package com.MY.test;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,31 +9,31 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.qianfeng.mapper.StudentMapper;
-import com.qianfeng.pojo.Student;
+import com.MY.mapper.StudentMapper;
+import com.MY.pojo.Student;
 
 /**
  * @author Teacher
- *	mybatis¶ÔÊý¾Ý¿âµÄ²Ù×÷È«²¿¶¼ÊÇ»ùÓÚsqlsessionµÄ²Ù×÷
+ *	mybatisï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½Ä²ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½sqlsessionï¿½Ä²ï¿½ï¿½ï¿½
  *	user_name useName user_age userAge
  */
 public class TestMybatis {
 	public static void main(String[] args) {
-		//²âÊÔÄÜ·ñ´´½¨³ösqlsessionfactory
-		//»ñÈ¡mybatisµÄºËÐÄÅäÖÃµÄÎ»ÖÃ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ü·ñ´´½ï¿½ï¿½ï¿½sqlsessionfactory
+		//ï¿½ï¿½È¡mybatisï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Î»ï¿½ï¿½
 		String resource = "resources/mybatis-config.xml";
 		try {
 			InputStream input = Resources.getResourceAsStream(resource);
-			//Í¨¹ýsqlsessionfactoryBuilderÈ¥´´½¨¹¤³§
+			//Í¨sqlsessionfactoryBuilder
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input);
-			//»ñÈ¡sqlsesison
+			//sqlsesison
 			SqlSession sqlSession = sqlSessionFactory.openSession();
-			//Ê¹ÓÃsqlSession¼ÓÔØmapper
+			//Ê¹ï¿½ï¿½sqlSessionï¿½ï¿½ï¿½ï¿½mapper
 			StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-			//Ö´ÐÐ²éÑ¯²Ù×÷
+			//Ö´ï¿½Ð²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 			Student student = mapper.selectStudentById(5);
 			System.out.println(student);
-			//²âÊÔ²éÑ¯ËùÓÐµÄÑ§Éú
+			//ï¿½ï¿½ï¿½Ô²ï¿½Ñ¯ï¿½ï¿½ï¿½Ðµï¿½Ñ§ï¿½ï¿½
 //			List<Student> studentList = mapper.getStudentList();
 //			System.out.println(studentList);
 		} catch (IOException e) {

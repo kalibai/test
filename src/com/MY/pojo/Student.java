@@ -1,4 +1,4 @@
-package com.qianfeng.pojo;
+package com.MY.pojo;
 
 public class Student {
 	/*

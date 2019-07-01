@@ -1,25 +1,25 @@
-package com.qianfeng.test;
+package com.MY.test;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
-import com.qianfeng.mapper.StudentMapper;
-import com.qianfeng.pojo.Student;
-import com.qianfeng.utils.PageUtil;
-import com.qianfeng.utils.SqlSessionFactoryUtils;
+import com.MY.mapper.StudentMapper;
+import com.MY.pojo.Student;
+import com.MY.utils.PageUtil;
+import com.MY.utils.SqlSessionFactoryUtils;
 
 /**
  * @author Teacher
- *	×Ô¶¨ÒåÀà·ÖÒ³²éÑ¯
+ *	ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ñ¯
  */
 public class TestMybatisLimit {
 	public static void main(String[] args) {
 		Logger logger = Logger.getLogger(TestMybatisLimit.class);
 		SqlSession session = SqlSessionFactoryUtils.getSqlSession();
 		StudentMapper mapper = session.getMapper(StudentMapper.class);
-		//¸ø·ÖÒ³¶ÔÏó²ÎÊý¸³Öµ
+		//ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 		PageUtil pageUtil = new PageUtil();
 		pageUtil.setOffset(1);
 		pageUtil.setLength(4);

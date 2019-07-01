@@ -1,4 +1,4 @@
-package com.qianfeng.test;
+package com.MY.test;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,13 +7,13 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 
-import com.qianfeng.mapper.StudentMapper;
-import com.qianfeng.pojo.Student;
-import com.qianfeng.utils.SqlSessionFactoryUtils;
+import com.MY.mapper.StudentMapper;
+import com.MY.pojo.Student;
+import com.MY.utils.SqlSessionFactoryUtils;
 
 /**
  * @author Teacher
- *	Ê¹ÓÃmap×÷ÎªsqlµÄÈë²Î
+ *	Ê¹ï¿½ï¿½mapï¿½ï¿½Îªsqlï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class TestMybatisLimitByMap {
 	public static void main(String[] args) {
